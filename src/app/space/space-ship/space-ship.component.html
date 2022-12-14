@@ -2,6 +2,7 @@
 <h4>{{spaceShip.modelName}}</h4>
 <div class="images">
   <img [src]="spaceShip.imageUrl"/>
+  <img class="pilot" *ngIf="spaceShip.pilot" [src]="spaceShip.pilot.imageUrl"/>
 </div>
 <div class="health" [title]="'Health ' + spaceShip.health + '%'">
   <div [style.width.%]="spaceShip.health"></div>

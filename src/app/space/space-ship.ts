@@ -1,3 +1,5 @@
+import {Pilot} from './pilot';
+
 export class SpaceShip {
 
   modelName: string;
@@ -5,10 +7,12 @@ export class SpaceShip {
   health = 100;
   activeShields = true;
   activeWeapons = true;
+  pilot?: Pilot;
 
-  constructor(modelName: string, imageUrl: string) {
+  constructor(modelName: string, imageUrl: string, pilot?: Pilot) {
     this.modelName = modelName;
     this.imageUrl = imageUrl;
+    this.pilot = pilot;
   }
 
 }
