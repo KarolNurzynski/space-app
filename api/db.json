@@ -1,0 +1,22 @@
+{
+  "pilots": [
+    {
+      "id": 1,
+      "firstName": "Karol",
+      "lastName": "Xxx",
+      "imageUrl": "/assets/pilot.png"
+    },
+    {
+      "id": 2,
+      "firstName": "Adam",
+      "lastName": "Yyy",
+      "imageUrl": "/assets/pilot.png"
+    },
+    {
+      "id": 3,
+      "firstName": "Stefan",
+      "lastName": "Www",
+      "imageUrl": null
+    }
+  ]
+}
