@@ -12,8 +12,8 @@ export class PilotRoomComponent {
   @Output() selected = new EventEmitter<Pilot | null>();
 
   ngOnInit() {
-    this.pilots.push(new Pilot('Karol', '/assets/pilot.jpeg'));
-    this.pilots.push(new Pilot('Smith'));
+    this.pilots.push(new Pilot('Karol Jones', '/assets/pilot.jpeg'));
+    this.pilots.push(new Pilot('Smith Junior'));
   }
 
   select(pilot: Pilot | null): void {
