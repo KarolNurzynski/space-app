@@ -6,6 +6,8 @@ import { HangarComponent } from './hangar/hangar.component';
 import { SpaceShipComponent } from './space-ship/space-ship.component';
 import { PilotComponent } from './pilot/pilot.component';
 import { PilotRoomComponent } from './pilot-room/pilot-room.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { EngineersRoomComponent } from './engineers-room/engineers-room.component';
 
 
 @NgModule({
@@ -13,11 +15,13 @@ import { PilotRoomComponent } from './pilot-room/pilot-room.component';
     HangarComponent,
     SpaceShipComponent,
     PilotComponent,
-    PilotRoomComponent
+    PilotRoomComponent,
+    EngineersRoomComponent
   ],
   imports: [
     CommonModule,
-    SpaceRoutingModule
+    SpaceRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [
     HangarComponent
