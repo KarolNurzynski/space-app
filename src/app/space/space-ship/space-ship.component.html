@@ -1,16 +1,18 @@
 <p>space-ship works!</p>
 <h4>{{spaceShip.modelName}}</h4>
 <div class="images">
-  <img [src]="spaceShip.imageUrl"/>
+  <img [src]="spaceShip.imageUrl" appSpaceImage/>
   <img class="pilot" *ngIf="spaceShip.pilot" [src]="spaceShip.pilot.imageUrl"/>
 </div>
 <div class="health" [title]="'Health ' + spaceShip.health + '%'">
   <div [style.width.%]="spaceShip.health"></div>
 </div>
 <div class="property" [class.active]="spaceShip.activeShields">
+  {{spaceShip.activeShields | tickize}}
   SHIELDS
 </div>
 <div class="property" [class.active]="spaceShip.activeWeapons">
+  {{spaceShip.activeWeapons | tickize}}
   WEAPONS
 </div>
 <div class="actions">
