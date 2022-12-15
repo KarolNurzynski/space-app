@@ -4,6 +4,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {OrderFormValue} from '../order-form-value';
 import {SpaceShip} from '../space-ship';
 import {SpaceShipService} from '../space-ship.service';
+import {map} from 'rxjs';
 
 interface ShipType {
   label: string;
@@ -21,8 +22,10 @@ export class EngineersRoomComponent {
     {label: 'Fighter Jet', value: SpaceShipType.Fighter},
     {label: 'Bomber Jet', value: SpaceShipType.Bomber}
   ];
-  @Output() shipProduced = new EventEmitter<SpaceShip>();
   isProducing: boolean = false;
+  shipsCount = this.spaceShipService.hangarShips.pipe(
+    map((ships) => ships.length)
+  );
 
   form = new FormGroup({
     shipType: new FormControl(SpaceShipType.Fighter, {
@@ -42,7 +45,6 @@ export class EngineersRoomComponent {
     this.isProducing = true;
     this.spaceShipService.produceShips(formValue)
       .subscribe({
-        next: (ship) => this.shipProduced.emit(ship),
         complete: () => this.isProducing = false
       });
   }
