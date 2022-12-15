@@ -6,16 +6,18 @@ import { AppComponent } from './app.component';
 import {A2sCommModule} from 'a2s-comm';
 import {SpaceModule} from './space/space.module';
 import {HttpClientModule} from '@angular/common/http';
+import { BlackHoleComponent } from './black-hole/black-hole.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BlackHoleComponent
   ],
   imports: [
     BrowserModule,
+    SpaceModule,
     AppRoutingModule,
     A2sCommModule,
-    SpaceModule,
     HttpClientModule
   ],
   providers: [],
