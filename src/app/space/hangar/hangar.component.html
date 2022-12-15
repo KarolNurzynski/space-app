@@ -7,6 +7,6 @@
 </div>
 <div class="hangar-section">
   <app-pilot-room (selected)="setSelectedPilot($event)"></app-pilot-room>
-  <app-engineers-room></app-engineers-room>
+  <app-engineers-room (shipProduced)="spaceShips.push($event)"></app-engineers-room>
 </div>
 

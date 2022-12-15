@@ -16,8 +16,6 @@ export class HangarComponent implements OnInit {
   @ViewChild(PilotRoomComponent) pilotRoom!: PilotRoomComponent;
 
   ngOnInit(): void {
-    this.spaceShips.push(new FighterShip());
-    this.spaceShips.push(new BomberShip(new Pilot('Super Pilot', '/assets/pilot.jpeg')));
   }
 
   setSelectedPilot(pilot: Pilot | null) {
