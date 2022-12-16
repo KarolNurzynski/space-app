@@ -7,6 +7,11 @@
 </div>
 <div class="hangar-section">
   <app-pilot-room (selected)="setSelectedPilot($event)"></app-pilot-room>
-  <app-engineers-room></app-engineers-room>
+  <div class="sub-nav">
+    <a routerLink="production" routerLinkActive="active">Production</a>
+    &nbsp;
+    <a routerLink="destruction" routerLinkActive="active">Destruction</a>
+  </div>
+  <router-outlet></router-outlet>
 </div>
 
