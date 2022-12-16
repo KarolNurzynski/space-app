@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {FormControl, FormGroup} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {map} from 'rxjs';
+import {PilotService} from '../pilot.service';
+import {PilotValidators} from '../pilot-validators';
 
 @Component({
   selector: 'app-pilot-form',
@@ -12,17 +14,35 @@ export class PilotFormComponent implements OnInit {
 
   form = new FormGroup({
     id: new FormControl(undefined, {nonNullable: true}),
-    firstName: new FormControl('', {nonNullable: true}),
-    lastName: new FormControl('', {nonNullable: true}),
+    firstName: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required, PilotValidators.pilotName]
+    }),
+    lastName: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required],
+      asyncValidators: [PilotValidators.pilotForbidden],
+      updateOn: 'blur'
+    }),
     imageUrl: new FormControl('', {nonNullable: true})
   });
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private pilotService: PilotService,
+              private router: Router) { }
 
   ngOnInit() {
     this.route.data
       .pipe(map((data) => data['pilot']))
       .subscribe((pilot) => this.form.patchValue(pilot));
+  }
+
+  save(): void {
+    const pilotAttrs = this.form.getRawValue();
+    this.pilotService.savePilot(pilotAttrs).subscribe({
+      next: () => this.router.navigate(['../..'], {relativeTo: this.route}),
+      error: () => alert('Nie udało się zapisać pilota!')
+    });
   }
 
 }

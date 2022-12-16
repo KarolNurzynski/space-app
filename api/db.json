@@ -18,5 +18,16 @@
       "lastName": "Www",
       "imageUrl": null
     }
+  ],
+  "forbidden-names": [
+    {
+      "name": "Maruda"
+    },
+    {
+      "name": "Ciamajda"
+    },
+    {
+      "name": "Gapcio"
+    }
   ]
 }
